@@ -17,8 +17,8 @@ and the role in the application.
 import zmq
 
 
-PUB_ADDR = "epgm://localhost:5555"
-PULL_ADDR = "tcp://localhost:5556"
+PUB_ADDR = "tcp://127.0.0.1:5555"
+PULL_ADDR = "tcp://127.0.0.1:5556"
 
 
 def main():
@@ -30,5 +30,5 @@ def main():
     publisher.bind(PUB_ADDR)
 
     while True:
-        msg = puller.recv_multipart()
-        publisher.send_multipart(msg)
+        msg = puller.recv()
+        publisher.send(msg)
