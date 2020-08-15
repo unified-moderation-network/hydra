@@ -24,12 +24,12 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-Topic: "basalisk.gaze"
-Payload: 2-tuple of (uuid4, Any)
+- Topic: "basalisk.gaze"
+- Payload: 2-tuple of (uuid4, Any)
+
+  - uuid4: a uuid4 for matching exact event
     
-    uuid4: a uuid4 for matching exact event
-    
-    Any: Any messagepack serializable data which is useful to the asker to have included in the response, can be Null
+  - Any: Any messagepack serializable data which is useful to the asker to have included in the response, can be Null
 
 
 ### Modify Filter
