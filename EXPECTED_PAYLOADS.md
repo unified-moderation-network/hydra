@@ -12,12 +12,12 @@ if this is problematic for anyone, just use a constant with a less fun name assi
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-Topic: "basalisk.offer"
-Payload: 2-tuple of (If Match, To Check)
+- Topic: "basalisk.offer"
+- Payload: 2-tuple of (If Match, To Check)
 
-    If Match: a payload to be broadcast on a filter match (See next payload for details)
+  - If Match: a payload to be broadcast on a filter match (See next payload for details)
     
-    To Check: a string to check against the filter
+  - To Check: a string to check against the filter
 
 
 ### Filter match broadcast
@@ -36,30 +36,30 @@ Payload: 2-tuple of (uuid4, Any)
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-Topic: "basalisk.refocus"
-Payload: 2-tuple of (Add, Remove)
+- Topic: "basalisk.refocus"
+- Payload: 2-tuple of (Add, Remove)
     
-    Add: Tuple of filters to add (0-N)
+  - Add: Tuple of filters to add (0-N)
     
-    Remove Tuple of filters to remove (0-N)
+  - Remove Tuple of filters to remove (0-N)
 
 
 ### Cache invalidation
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-Topic: "cache.invalidate"
-Payload: Cache Name
+- Topic: "cache.invalidate"
+- Payload: Cache Name
     
-    Cache Name: Currently, this may only be "basalisk", other caches will be added later.
+  - Cache Name: Currently, this may only be "basalisk", other caches will be added later.
 
 
 ### Status Check
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-Topic: "status.check"
-Payload: uuid4 (Sent for use in response)
+- Topic: "status.check"
+- Payload: uuid4 (Sent for use in response)
 
 
 ### Status response
@@ -68,14 +68,14 @@ Note: The payload of this one is partially subject to change, specifically with 
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-Topic: "status.response"
-Payload: 4-tuple of (uuid4, component name, uptime, status)
+- Topic: "status.response"
+- Payload: 4-tuple of (uuid4, component name, uptime, status)
     
-    uuid4: used for matching with a status request (see above)
+  - uuid4: used for matching with a status request (see above)
     
-    component name: the component which is responding (most should)
+  - component name: the component which is responding (most should)
     
-    uptime: the unix timestamp the component has been alive since
+  - uptime: the unix timestamp the component has been alive since
     
-    status: a map containing details about the current health of the component (differs by component, to be documented more)
+  - status: a map containing details about the current health of the component (differs by component, to be documented more)
 
