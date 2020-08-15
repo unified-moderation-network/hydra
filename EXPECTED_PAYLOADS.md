@@ -14,7 +14,9 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Topic: "basalisk.offer"
 Payload: 2-tuple of (If Match, To Check)
+
     If Match: a payload to be broadcast on a filter match (See next payload for details)
+    
     To Check: a string to check against the filter
 
 
@@ -24,7 +26,9 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Topic: "basalisk.gaze"
 Payload: 2-tuple of (uuid4, Any)
+    
     uuid4: a uuid4 for matching exact event
+    
     Any: Any messagepack serializable data which is useful to the asker to have included in the response, can be Null
 
 
@@ -34,7 +38,9 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Topic: "basalisk.refocus"
 Payload: 2-tuple of (Add, Remove)
+    
     Add: Tuple of filters to add (0-N)
+    
     Remove Tuple of filters to remove (0-N)
 
 
@@ -44,6 +50,7 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Topic: "cache.invalidate"
 Payload: Cache Name
+    
     Cache Name: Currently, this may only be "basalisk", other caches will be added later.
 
 
@@ -63,8 +70,12 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Topic: "status.response"
 Payload: 4-tuple of (uuid4, component name, uptime, status)
+    
     uuid4: used for matching with a status request (see above)
+    
     component name: the component which is responding (most should)
+    
     uptime: the unix timestamp the component has been alive since
+    
     status: a map containing details about the current health of the component (differs by component, to be documented more)
 
