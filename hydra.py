@@ -1,34 +1,24 @@
-from __future__ import annotations
-
 """
-This really small component should probably be
-replaced with native code later.
-
-It exists so that we have a stable point of communication and socket ownership
+This exists so that we have a stable point of communication and socket ownership
 for components that are less robust, such as those which might fail abruptly
 due to external API issues. There's little room to improve this design wise
 unless the design of the whole application needs adjustments for scale.
-
-This makes a good target for native code later on given the simplicity of it
-and the role in the application.
 """
 
 
 import zmq
 
 
-PUB_ADDR = "tcp://127.0.0.1:5555"
-PULL_ADDR = "tcp://127.0.0.1:5556"
-
-
 def main():
     ctx = zmq.Context()
-
     puller = ctx.socket(zmq.PULL)
     publisher = ctx.socket(zmq.PUB)
-    puller.bind(PULL_ADDR)
-    publisher.bind(PUB_ADDR)
-
+    publisher.bind("tcp://127.0.0.1:5555")
+    puller.bind("tcp://127.0.0.1:5556")
     while True:
         msg = puller.recv()
         publisher.send(msg)
+
+
+if __name__ == "__main__":
+    main()
