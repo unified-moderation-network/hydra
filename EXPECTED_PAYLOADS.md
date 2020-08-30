@@ -79,3 +79,4 @@ Msgpack encoded 2-tuple of (Topic, Payload)
     
   - status: a map containing details about the current health of the component (differs by component, to be documented more)
 
+    - Basalisk: "patterns" => sequence of patterns being filtered
