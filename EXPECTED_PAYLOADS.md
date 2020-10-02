@@ -80,3 +80,28 @@ Msgpack encoded 2-tuple of (Topic, Payload)
   - status: a map containing details about the current health of the component (differs by component, to be documented more)
 
     - Basalisk: "patterns" => sequence of patterns being filtered
+
+
+### Schedule message
+
+Msgpack encoded 2-tuple of (Topic, Payload)
+
+- Topic: "serpent.start"
+- Payload: 4-Tuple of (uuid4, schedule, timezone_info, scheduled_message)
+
+  - uuid: used to unschedule
+   
+  - schedule: 2-tuple of (schedule type, parseable schedule)
+    
+    - The type can currently only be "CRON" with a matching parseable entry
+  
+  - scheduled_message: binary representation of the scheduled message
+
+
+### Unschedule message
+
+Msgpack encoded 2-tuple of (Topic, Payload)
+
+- Topic: "serpent.stop"
+- Payload: 2-tuple of (schedule type, uuid4)
+  - see above scheduling for these
