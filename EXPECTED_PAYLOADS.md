@@ -12,7 +12,7 @@ if this is problematic for anyone, just use a constant with a less fun name assi
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-- Topic: "basalisk.offer"
+- Topic: "basilisk.offer"
 - Payload: 2-tuple of (If Match, To Check)
 
   - If Match: a payload to be broadcast on a filter match (See next payload for details)
@@ -24,7 +24,7 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-- Topic: "basalisk.gaze"
+- Topic: "basilisk.gaze"
 - Payload: 2-tuple of (uuid4, Any)
 
   - uuid4: a uuid4 for matching exact event
@@ -36,7 +36,7 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 
 Msgpack encoded 2-tuple of (Topic, Payload)
 
-- Topic: "basalisk.refocus"
+- Topic: "basilisk.refocus"
 - Payload: 2-tuple of (Add, Remove)
     
   - Add: Tuple of filters to add (0-N)
@@ -51,7 +51,7 @@ Msgpack encoded 2-tuple of (Topic, Payload)
 - Topic: "cache.invalidate"
 - Payload: Cache Name
     
-  - Cache Name: Currently, this may only be "basalisk", other caches will be added later.
+  - Cache Name: Currently, this may only be "basilisk", other caches will be added later.
 
 
 ### Status Check
@@ -79,7 +79,7 @@ Msgpack encoded 2-tuple of (Topic, Payload)
     
   - status: a map containing details about the current health of the component (differs by component, to be documented more)
 
-    - Basalisk: "patterns" => sequence of patterns being filtered
+    - Basilisk: "patterns" => sequence of patterns being filtered
 
 
 ### Schedule message
